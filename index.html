@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Counter</title>
+
+</head>
+<style>
+    body {
+        background: rgb(2, 0, 36);
+        background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(90, 121, 9, 0.17130602240896353) 35%, rgba(0, 212, 255, 1) 100%);
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    .roger {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 35px;
+
+    }
+    #textarea {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .spanner {
+        font-size: 25px;
+    }
+
+    #warning {
+        color: red;
+        font-size: 25px;
+    }
+</style>
+
+<body>
+    <div class="roger">
+        <h1>Character Counter</h1>
+        <textarea rows="13" cols="50" id="textarea" maxlength="200"></textarea>
+        <div class="spanner"><span id="counter"></span>/200</div>
+        <div id="warning" hidden>
+            You have reached the maximum character limit!
+        </div>
+    </div>
+
+
+</body>
+
+
+<script>
+    var textarea = document.getElementById("textarea")
+    var counter = document.getElementById("counter")
+    var warning = document.getElementById("warning")
+    textarea.addEventListener("input", () => {
+        const textLength = textarea.value.length;
+        counter.textContent = textarea.value.length
+
+        if (textLength >= 200) {
+
+            warning.hidden = false
+        } else {
+
+            warning.hidden = true
+        }
+    })
+
+</script>
+
+</html>
+
+
+
